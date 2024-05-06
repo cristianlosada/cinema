@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto_cinema/views/confiteria_screen.dart';
+import 'package:proyecto_cinema/views/principal_view.dart';
 import 'package:proyecto_cinema/widgets/banner_homepage.dart';
 import 'package:proyecto_cinema/widgets/seccion_peliculas.dart';
 
@@ -10,6 +12,13 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  int _selectedIndex = 0;
+
+  List<Widget> _screens = [
+    PrincipalView(screenHeight: 1, screenWidth: 1),
+    ConfiteriaView(),
+    TeatrosView(),
+  ];
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -35,57 +44,7 @@ class _HomeViewState extends State<HomeView> {
                 bottomLeft: Radius.circular(25),
                 bottomRight: Radius.circular(25))),
       ),
-      body: SafeArea(
-        child: ListView(
-          children: <Widget>[
-            PrincipalBanner(),
-            SizedBox(height: 10),
-            Container(
-              height: screenHeight * 0.1,
-              width: screenWidth * 0.95,
-              margin: const EdgeInsets.all(10),
-              padding: const EdgeInsets.all(10),
-              child: const Text(
-                'Ulimos Estrenos',
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.black,
-                    fontFamily: 'Roboto'),
-              ),
-            ),
-            ListaPeliculasView(),
-            Container(
-              margin: EdgeInsets.all(10),
-              padding: EdgeInsets.all(10),
-              child: Text(
-                'Proximos Estrenos',
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.black,
-                    fontFamily: 'Roboto'),
-              ),
-            ),
-            ListaPeliculasView(),
-            Container(
-              height: screenHeight * 0.08,
-              width: screenWidth * 0.95,
-              margin: EdgeInsets.all(10),
-              padding: EdgeInsets.all(10),
-              child: Text(
-                'Promociones',
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.black,
-                    fontFamily: 'Roboto'),
-              ),
-            ),
-            ListaPeliculasView(),
-          ],
-        ),
-      ),
+      body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
@@ -93,6 +52,30 @@ class _HomeViewState extends State<HomeView> {
               icon: Icon(Icons.fastfood), label: 'Confiteria'),
           BottomNavigationBarItem(icon: Icon(Icons.theaters), label: 'Teatros'),
         ],
+        onTap: (i) {
+          setState(() {
+            _selectedIndex = i;
+          });
+        },
+      ),
+    );
+  }
+}
+
+//pasar a el archivo teatro
+class TeatrosView extends StatefulWidget {
+  const TeatrosView({super.key});
+
+  @override
+  State<TeatrosView> createState() => _TeatrosViewState();
+}
+
+class _TeatrosViewState extends State<TeatrosView> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        color: Colors.pink,
       ),
     );
   }

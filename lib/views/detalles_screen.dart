@@ -42,18 +42,22 @@ class DetallesScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
+                    margin: EdgeInsets.all(10),
+                    alignment: Alignment.center,
                     width: screenHeight * 0.9,
                     height: screenHeight * 0.1,
                     decoration: BoxDecoration(
-                        color: Colors.amberAccent,
+                        color: Colors.orangeAccent,
                         borderRadius: BorderRadius.circular(30)),
                     child: Text("NOMBRE DE LA PELICULA"),
                   ),
                   Container(
+                    margin: EdgeInsets.all(10),
+                    alignment: Alignment.center,
                     width: screenHeight * 0.9,
                     height: screenHeight * 0.5,
                     decoration: BoxDecoration(
-                      color: Colors.redAccent,
+                      color: Color.fromARGB(255, 225, 225, 225),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: Text("descripcion de la pelicula de sonic"),
@@ -62,6 +66,7 @@ class DetallesScreen extends StatelessWidget {
               ),
             ),
             Container(
+              margin: EdgeInsets.only(bottom: 20),
               padding: EdgeInsets.only(right: 20, left: 20),
               child: FilledButton(
                   onPressed: () {
