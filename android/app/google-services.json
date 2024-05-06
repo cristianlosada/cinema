@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "453378297645",
+    "project_id": "proyectocinema-43a30",
+    "storage_bucket": "proyectocinema-43a30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453378297645:android:c7b4a8c9b3ed68472c8da4",
+        "android_client_info": {
+          "package_name": "com.example.proyecto_cinema"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhVNe00oEwNiJQ7huDpsbKzHhKcwVB3sw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
