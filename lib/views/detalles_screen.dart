@@ -53,10 +53,10 @@ class DetallesScreen extends StatelessWidget {
                     width: screenHeight * 0.9,
                     height: screenHeight * 0.5,
                     decoration: BoxDecoration(
-                      color: Colors.blue.shade100,
+                      color: Colors.redAccent,
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    child: Text("descripcion de la pelicula"),
+                    child: Text("descripcion de la pelicula de sonic"),
                   )
                 ],
               ),
