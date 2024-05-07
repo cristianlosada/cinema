@@ -27,7 +27,7 @@ List<Pelicula> peliculas = [
       nombre: "El Padrino",
       descripcion: "pelicula de avengers",
       fechaEstreno: "1989, 11, 9",
-      imagen: "assets/img/Padrino"),
+      imagen: "assets/img/sonic.png"),
   Pelicula(
       id: 3,
       nombre: "Hulk",

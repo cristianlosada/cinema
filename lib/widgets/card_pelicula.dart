@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:proyecto_cinema/model/peliculas.dart';
 import 'package:proyecto_cinema/views/detalles_screen.dart';
 
 class PeliculaCard extends StatelessWidget {
+  final Pelicula pelicula;
   const PeliculaCard({
     super.key,
+    required this.pelicula,
   });
 
   @override
@@ -27,14 +30,14 @@ class PeliculaCard extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
-                "assets/img/sonic.png",
+                pelicula.imagen,
                 fit: BoxFit.cover,
               ),
             ),
           ),
         ),
         Text(
-          "texto",
+          pelicula.nombre,
           style: TextStyle(fontSize: 30),
         ),
       ],

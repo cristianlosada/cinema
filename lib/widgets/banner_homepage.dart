@@ -14,8 +14,8 @@ class _PrincipalBannerState extends State<PrincipalBanner> {
     double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       margin: const EdgeInsets.all(10),
-      width: screenWidth * 0.8,
-      height: screenHeight * 0.3,
+      width: screenWidth * 1,
+      height: screenHeight * 0.5,
       child: Image.asset(
         "assets/img/banner.jpeg",
         fit: BoxFit.cover,

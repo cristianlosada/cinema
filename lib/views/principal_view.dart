@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:proyecto_cinema/widgets/banner_homepage.dart';
 import 'package:proyecto_cinema/widgets/seccion_peliculas.dart';
 
-class PrincipalView extends StatelessWidget {
+class PrincipalView extends StatefulWidget {
   const PrincipalView({
     super.key,
     required this.screenHeight,
@@ -13,19 +13,25 @@ class PrincipalView extends StatelessWidget {
   final double screenWidth;
 
   @override
+  State<PrincipalView> createState() => _PrincipalViewState();
+}
+
+class _PrincipalViewState extends State<PrincipalView> {
+  @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: ListView(
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           PrincipalBanner(),
-          SizedBox(height: 10),
           Container(
-            height: screenHeight * 0.1,
-            width: screenWidth * 0.95,
-            margin: const EdgeInsets.all(10),
-            padding: const EdgeInsets.all(10),
-            child: const Text(
-              'Ulimos Estrenos',
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsets.all(10),
+            child: Text(
+              'Cartelera',
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w900,
@@ -33,7 +39,10 @@ class PrincipalView extends StatelessWidget {
                   fontFamily: 'Roboto'),
             ),
           ),
-          ListaPeliculasView(),
+          SizedBox(
+            height: screenHeight * 0.4,
+            child: ListaPeliculasView(),
+          ),
           Container(
             margin: EdgeInsets.all(10),
             padding: EdgeInsets.all(10),
@@ -46,10 +55,11 @@ class PrincipalView extends StatelessWidget {
                   fontFamily: 'Roboto'),
             ),
           ),
-          ListaPeliculasView(),
+          SizedBox(
+            height: screenHeight * 0.4,
+            child: ListaPeliculasView(),
+          ),
           Container(
-            height: screenHeight * 0.08,
-            width: screenWidth * 0.95,
             margin: EdgeInsets.all(10),
             padding: EdgeInsets.all(10),
             child: Text(
@@ -61,7 +71,10 @@ class PrincipalView extends StatelessWidget {
                   fontFamily: 'Roboto'),
             ),
           ),
-          ListaPeliculasView(),
+          SizedBox(
+            height: screenHeight * 0.4,
+            child: ListaPeliculasView(),
+          ),
         ],
       ),
     );

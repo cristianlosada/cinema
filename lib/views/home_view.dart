@@ -24,40 +24,48 @@ class _HomeViewState extends State<HomeView> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.orangeAccent,
-        centerTitle: true,
-        title: const Text('CinemaPark'),
-        actions: <Widget>[
-          IconButton(
-              color: Colors.white,
-              onPressed: () {},
-              icon: const Icon(Icons.settings)),
-        ],
-        leading: IconButton(
-          color: Colors.white,
-          icon: const Icon(Icons.menu),
-          onPressed: () {},
-        ),
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(25),
-                bottomRight: Radius.circular(25))),
-      ),
+      appBar: AppBarPrincipal(),
       body: _screens[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.fastfood), label: 'Confiteria'),
-          BottomNavigationBarItem(icon: Icon(Icons.theaters), label: 'Teatros'),
-        ],
-        onTap: (i) {
-          setState(() {
-            _selectedIndex = i;
-          });
-        },
+      bottomNavigationBar: BottomNavBarPrincipal(),
+    );
+  }
+
+  BottomNavigationBar BottomNavBarPrincipal() {
+    return BottomNavigationBar(
+      items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.fastfood), label: 'Confiteria'),
+        BottomNavigationBarItem(icon: Icon(Icons.theaters), label: 'Teatros'),
+      ],
+      onTap: (i) {
+        setState(() {
+          _selectedIndex = i;
+        });
+      },
+    );
+  }
+
+  AppBar AppBarPrincipal() {
+    return AppBar(
+      backgroundColor: Colors.orangeAccent,
+      centerTitle: true,
+      title: const Text('CinemaPark'),
+      actions: <Widget>[
+        IconButton(
+            color: Colors.white,
+            onPressed: () {},
+            icon: const Icon(Icons.settings)),
+      ],
+      leading: IconButton(
+        color: Colors.white,
+        icon: const Icon(Icons.menu),
+        onPressed: () {},
       ),
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(25),
+              bottomRight: Radius.circular(25))),
     );
   }
 }
