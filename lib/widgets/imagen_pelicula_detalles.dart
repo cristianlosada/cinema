@@ -21,7 +21,7 @@ class imagen_detalles extends StatelessWidget {
               bottomLeft: Radius.circular(50),
               bottomRight: Radius.circular(50)),
           child: Image.asset(
-            peliculas[0].imagen,
+            pelicula.imagen,
             fit: BoxFit.cover,
           )),
     );

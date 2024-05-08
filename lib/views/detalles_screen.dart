@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:proyecto_cinema/model/peliculas.dart';
 import 'package:proyecto_cinema/views/home_view.dart';
 import 'package:proyecto_cinema/views/reservas_screen.dart';
-import 'package:proyecto_cinema/widgets/banner_homepage.dart';
-import 'package:proyecto_cinema/widgets/imagen_pelicula_detalles.dart';
-import 'package:proyecto_cinema/widgets/seccion_peliculas.dart';
 
 class DetallesScreen extends StatelessWidget {
   final Pelicula pelicula;
@@ -41,9 +38,7 @@ class DetallesScreen extends StatelessWidget {
         child: SafeArea(
           child: ListView(
             children: <Widget>[
-              imagen_detalles(
-                pelicula: peliculas[0],
-              ),
+              Image.asset(pelicula.imagen),
               Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

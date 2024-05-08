@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto_cinema/views/confiteria_screen.dart';
 import 'package:proyecto_cinema/views/principal_view.dart';
+import 'package:proyecto_cinema/views/teatros_screen.dart';
 import 'package:proyecto_cinema/widgets/banner_homepage.dart';
 import 'package:proyecto_cinema/widgets/seccion_peliculas.dart';
 
@@ -66,25 +67,6 @@ class _HomeViewState extends State<HomeView> {
           borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(25),
               bottomRight: Radius.circular(25))),
-    );
-  }
-}
-
-//pasar a el archivo teatro
-class TeatrosView extends StatefulWidget {
-  const TeatrosView({super.key});
-
-  @override
-  State<TeatrosView> createState() => _TeatrosViewState();
-}
-
-class _TeatrosViewState extends State<TeatrosView> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Colors.pink,
-      ),
     );
   }
 }

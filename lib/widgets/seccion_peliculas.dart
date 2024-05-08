@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:proyecto_cinema/model/peliculas.dart';
+import 'package:proyecto_cinema/views/detalles_screen.dart';
 import 'package:proyecto_cinema/widgets/card_pelicula.dart';
 
 class ListaPeliculasView extends StatelessWidget {
@@ -16,7 +17,14 @@ class ListaPeliculasView extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemCount: peliculas.length,
       itemBuilder: (context, index) {
-        return PeliculaCard(pelicula: peliculas[index]);
+        return PeliculaCard(
+          pelicula: peliculas[index],
+          press: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      DetallesScreen(pelicula: peliculas[index]))),
+        );
       },
     );
   }

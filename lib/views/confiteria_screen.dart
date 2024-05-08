@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto_cinema/constants.dart';
+import 'package:proyecto_cinema/model/productos.dart';
 import 'package:proyecto_cinema/views/detalles_producto.dart';
 import 'package:proyecto_cinema/widgets/card_producto.dart';
 
@@ -20,7 +21,14 @@ class _ConfiteriaViewState extends State<ConfiteriaView> {
               crossAxisCount: 2,
             ),
             itemBuilder: (context, index) {
-              return ProductoConfiteriaCard(producto: productos[index]);
+              return ProductoConfiteriaCard(
+                producto: productos[index],
+                press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            DetallesProductoView(producto: productos[index]))),
+              );
             }));
   }
 }
