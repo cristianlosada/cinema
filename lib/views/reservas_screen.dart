@@ -18,12 +18,13 @@ class _ReservasPageState extends State<ReservasPage> {
   TextEditingController _funcion = new TextEditingController();
   TextEditingController _combo = new TextEditingController();
   TextEditingController _teatro = new TextEditingController();
-  _ReservasPageState() {
-    _selectedVal = _productSizeList[0];
-  }
+  String _selectedCombo = "Combo 1";
+  String _selectedTeatro = "Teatro 1";
+  String _selectedFuncion = "Funcion 1";
 
-  final _productSizeList = ["Small", "Medium", "Large", "Xlarge"];
-  String _selectedVal = "Small";
+  final _comboList = ["Combo 1", "Combo 2", "Combo 3", "Combo 4"];
+  final _teatroList = ["Teatro 1", "Teatro 2", "Teatro 3", "Teatro 4"];
+  final _funcionList = ["Funcion 1", "Funcion 2", "Funcion 3", "Funcion 4"];
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,6 @@ class _ReservasPageState extends State<ReservasPage> {
         backgroundColor: Colors.orangeAccent,
         centerTitle: true,
         title: const Text('CinemaPark'),
-        actions: <Widget>[],
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(25),
@@ -78,8 +78,8 @@ class _ReservasPageState extends State<ReservasPage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: DropdownButtonFormField(
-                  value: _selectedVal,
-                  items: _productSizeList.map((e) {
+                  value: _selectedCombo,
+                  items: _comboList.map((e) {
                     return DropdownMenuItem(
                       child: Text(e),
                       value: e,
@@ -87,7 +87,7 @@ class _ReservasPageState extends State<ReservasPage> {
                   }).toList(),
                   onChanged: (val) {
                     setState(() {
-                      _selectedVal = val as String;
+                      _selectedCombo = val as String;
                     });
                   },
                   dropdownColor: Colors.deepPurple.shade50,
@@ -99,8 +99,8 @@ class _ReservasPageState extends State<ReservasPage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: DropdownButtonFormField(
-                  value: _selectedVal,
-                  items: _productSizeList.map((e) {
+                  value: _selectedTeatro,
+                  items: _teatroList.map((e) {
                     return DropdownMenuItem(
                       child: Text(e),
                       value: e,
@@ -108,7 +108,7 @@ class _ReservasPageState extends State<ReservasPage> {
                   }).toList(),
                   onChanged: (val) {
                     setState(() {
-                      _selectedVal = val as String;
+                      _selectedTeatro = val as String;
                     });
                   },
                   dropdownColor: Colors.deepPurple.shade50,
@@ -120,8 +120,8 @@ class _ReservasPageState extends State<ReservasPage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: DropdownButtonFormField(
-                  value: _selectedVal,
-                  items: _productSizeList.map((e) {
+                  value: _selectedFuncion,
+                  items: _funcionList.map((e) {
                     return DropdownMenuItem(
                       child: Text(e),
                       value: e,
@@ -129,7 +129,7 @@ class _ReservasPageState extends State<ReservasPage> {
                   }).toList(),
                   onChanged: (val) {
                     setState(() {
-                      _selectedVal = val as String;
+                      _selectedFuncion = val as String;
                     });
                   },
                   dropdownColor: Colors.deepPurple.shade50,
@@ -147,10 +147,14 @@ class _ReservasPageState extends State<ReservasPage> {
                         context,
                         MaterialPageRoute(
                             builder: (BuildContext context) => TicketFinalView(
-                                name: _nombres.text,
-                                lastname: _apellidos.text,
-                                doc: _documento.text,
-                                telefono: _telefono.text)));
+                                  name: _nombres.text,
+                                  lastname: _apellidos.text,
+                                  doc: _documento.text,
+                                  telefono: _telefono.text,
+                                  combo: _selectedCombo,
+                                  teatro: _selectedTeatro,
+                                  funcion: _selectedFuncion,
+                                )));
                   },
                   child: Text("Generar ticket"))
             ],

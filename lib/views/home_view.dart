@@ -39,6 +39,8 @@ class _HomeViewState extends State<HomeView> {
             icon: Icon(Icons.fastfood), label: 'Confiteria'),
         BottomNavigationBarItem(icon: Icon(Icons.theaters), label: 'Teatros'),
       ],
+      currentIndex: _selectedIndex,
+      selectedItemColor: Colors.amber[800],
       onTap: (i) {
         setState(() {
           _selectedIndex = i;
@@ -52,17 +54,6 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: Colors.orangeAccent,
       centerTitle: true,
       title: const Text('CinemaPark'),
-      actions: <Widget>[
-        IconButton(
-            color: Colors.white,
-            onPressed: () {},
-            icon: const Icon(Icons.settings)),
-      ],
-      leading: IconButton(
-        color: Colors.white,
-        icon: const Icon(Icons.menu),
-        onPressed: () {},
-      ),
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(25),
