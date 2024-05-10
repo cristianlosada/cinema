@@ -67,19 +67,6 @@ class DetallesProductoView extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(bottom: 20),
-                padding: EdgeInsets.only(right: 20, left: 20),
-                child: FilledButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  ReservasPage()));
-                    },
-                    child: Text('Reservar')),
-              )
             ],
           ),
         ),
