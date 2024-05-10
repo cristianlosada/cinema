@@ -22,6 +22,15 @@ class _ReservasPageState extends State<ReservasPage> {
   String _selectedTeatro = "Teatro 1";
   String _selectedFuncion = "Funcion 1";
 
+  String generateQR() {
+    // Concatena los datos de los textfield y dropdowns en una cadena
+    String data =
+        "${_nombres.text}, ${_apellidos.text}, ${_documento.text}, ${_telefono.text}, $_selectedCombo, $_selectedTeatro, $_selectedFuncion";
+
+    // Devuelve los datos como una cadena
+    return data;
+  }
+
   final _comboList = ["Combo 1", "Combo 2", "Combo 3", "Combo 4"];
   final _teatroList = ["Teatro 1", "Teatro 2", "Teatro 3", "Teatro 4"];
   final _funcionList = ["Funcion 1", "Funcion 2", "Funcion 3", "Funcion 4"];
@@ -143,6 +152,7 @@ class _ReservasPageState extends State<ReservasPage> {
               ),
               ElevatedButton(
                   onPressed: () {
+                    String qrData = generateQR();
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -154,6 +164,7 @@ class _ReservasPageState extends State<ReservasPage> {
                                   combo: _selectedCombo,
                                   teatro: _selectedTeatro,
                                   funcion: _selectedFuncion,
+                                  qrData: qrData,
                                 )));
                   },
                   child: Text("Generar ticket"))

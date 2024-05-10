@@ -1,12 +1,14 @@
 import 'dart:ffi';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:proyecto_cinema/constants.dart';
 import 'package:proyecto_cinema/views/home_view.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class TicketFinalView extends StatelessWidget {
-  final String name, lastname, doc, telefono, combo, teatro, funcion;
+  final String name, lastname, doc, telefono, combo, teatro, funcion, qrData;
   const TicketFinalView(
       {super.key,
       required this.name,
@@ -15,7 +17,8 @@ class TicketFinalView extends StatelessWidget {
       required this.telefono,
       required this.combo,
       required this.teatro,
-      required this.funcion});
+      required this.funcion,
+      required this.qrData});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,7 @@ class TicketFinalView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             Container(
               margin: EdgeInsets.only(top: 50, left: 50, right: 50),
               child: Text(
@@ -33,16 +36,14 @@ class TicketFinalView extends StatelessWidget {
                 style: TextStyle(fontSize: 20),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                  top: 10, left: kDefaultPaddin, right: kDefaultPaddin),
-              child: Container(
-                height: 400,
-                width: screenWidth * 1,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: Colors.amber),
-              ),
+            Column(
+              children: [
+                QrImageView(
+                  data: qrData,
+                  version: QrVersions.auto,
+                  size: 200.0,
+                )
+              ],
             ),
             SizedBox(
               height: 50,
