@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:proyecto_cinema/model/peliculas.dart';
 import 'package:proyecto_cinema/views/detalles_screen.dart';
 import 'package:proyecto_cinema/widgets/card_pelicula.dart';

@@ -24,7 +24,7 @@ class _PrincipalViewState extends State<PrincipalView> {
 
     return SingleChildScrollView(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           const PrincipalBanner(),
           Container(
@@ -33,50 +33,74 @@ class _PrincipalViewState extends State<PrincipalView> {
             child: const Text(
               'Cartelera',
               style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.black,
-                  fontFamily: 'Roboto'),
+                fontSize: 30,
+                fontWeight: FontWeight.w900,
+                color: Colors.black,
+                fontFamily: 'Roboto',
+              ),
             ),
           ),
-          SizedBox(
-            height: screenHeight * 0.4,
-            child: const ListaPeliculasView(),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              bool isDesktop = constraints.maxWidth >= 1024;
+
+              return SizedBox(
+                width: isDesktop ? screenWidth * 0.8 : constraints.maxWidth,
+                height: screenHeight * 0.4,
+                child: const ListaPeliculasView(),
+              );
+            },
           ),
           const SizedBox(
             height: 15,
           ),
           Container(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: const Text(
               'Proximos Estrenos',
               style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.black,
-                  fontFamily: 'Roboto'),
+                fontSize: 30,
+                fontWeight: FontWeight.w900,
+                color: Colors.black,
+                fontFamily: 'Roboto',
+              ),
             ),
           ),
-          SizedBox(
-            height: screenHeight * 0.4,
-            child: ListaPeliculasView(),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              bool isDesktop = constraints.maxWidth >= 1024;
+
+              return SizedBox(
+                width: isDesktop ? 900 : constraints.maxWidth,
+                height: screenHeight * 0.4,
+                child: const ListaPeliculasView(),
+              );
+            },
           ),
           Container(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(10),
-            child: Text(
+            margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
+            child: const Text(
               'Promociones',
               style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.black,
-                  fontFamily: 'Roboto'),
+                fontSize: 30,
+                fontWeight: FontWeight.w900,
+                color: Colors.black,
+                fontFamily: 'Roboto',
+              ),
             ),
           ),
-          SizedBox(
-            height: screenHeight * 0.4,
-            child: ListaPeliculasView(),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              bool isDesktop = constraints.maxWidth >= 1024;
+
+              return SizedBox(
+                width: isDesktop ? 900 : constraints.maxWidth,
+                height: screenHeight * 0.4,
+                child: const ListaPeliculasView(),
+              );
+            },
           ),
         ],
       ),

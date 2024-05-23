@@ -20,11 +20,11 @@ class ProductoConfiteriaCard extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Container(
-        color: Color.fromRGBO(198, 198, 198, 1),
+        color: const Color.fromRGBO(198, 198, 198, 1),
         height: 100,
         width: 100,
-        margin: EdgeInsets.all(10),
-        padding: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: GestureDetector(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
