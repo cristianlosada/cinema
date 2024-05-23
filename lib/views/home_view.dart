@@ -20,10 +20,12 @@ class _HomeViewState extends State<HomeView> {
     ConfiteriaView(),
     TeatrosView(),
   ];
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBarPrincipal(),
       body: _screens[_selectedIndex],
@@ -55,9 +57,11 @@ class _HomeViewState extends State<HomeView> {
       centerTitle: true,
       title: const Text('CinemaPark'),
       shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(25),
-              bottomRight: Radius.circular(25))),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(25),
+          bottomRight: Radius.circular(25),
+        ),
+      ),
     );
   }
 }

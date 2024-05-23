@@ -4,12 +4,14 @@ import 'package:proyecto_cinema/model/peliculas.dart';
 import 'package:proyecto_cinema/views/detalles_screen.dart';
 
 class PeliculaCard extends StatelessWidget {
+  final double height;
   final Pelicula pelicula;
   final Function() press;
   const PeliculaCard({
     super.key,
     required this.pelicula,
     required this.press,
+    required this.height,
   });
 
   @override
@@ -20,9 +22,8 @@ class PeliculaCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(1),
-            margin: EdgeInsets.all(10),
-            height: 250,
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            height: height,
             width: 160,
             child: GestureDetector(
               child: ClipRRect(
@@ -34,9 +35,17 @@ class PeliculaCard extends StatelessWidget {
               ),
             ),
           ),
-          Text(
-            pelicula.nombre,
-            style: TextStyle(fontSize: 30),
+          SizedBox(
+            width: 160,
+            child: Center(
+              child: Text(
+                pelicula.nombre,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontSize: 30,
+                ),
+              ),
+            ),
           ),
         ],
       ),

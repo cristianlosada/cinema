@@ -26,11 +26,11 @@ class _PrincipalViewState extends State<PrincipalView> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          PrincipalBanner(),
+          const PrincipalBanner(),
           Container(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(10),
-            child: Text(
+            margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
+            child: const Text(
               'Cartelera',
               style: TextStyle(
                   fontSize: 30,
@@ -41,12 +41,15 @@ class _PrincipalViewState extends State<PrincipalView> {
           ),
           SizedBox(
             height: screenHeight * 0.4,
-            child: ListaPeliculasView(),
+            child: const ListaPeliculasView(),
+          ),
+          const SizedBox(
+            height: 15,
           ),
           Container(
             margin: EdgeInsets.all(10),
             padding: EdgeInsets.all(10),
-            child: Text(
+            child: const Text(
               'Proximos Estrenos',
               style: TextStyle(
                   fontSize: 30,

@@ -11,21 +11,27 @@ class ListaPeliculasView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: peliculas.length,
-      itemBuilder: (context, index) {
-        return PeliculaCard(
-          pelicula: peliculas[index],
-          press: () => Navigator.push(
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+      double listViewHeight = constraints.maxHeight;
+
+      return ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: peliculas.length,
+        itemBuilder: (context, index) {
+          return PeliculaCard(
+            height: listViewHeight * 0.8,
+            pelicula: peliculas[index],
+            press: () => Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) =>
-                      DetallesScreen(pelicula: peliculas[index]))),
-        );
-      },
-    );
+                builder: (context) =>
+                    DetallesScreen(pelicula: peliculas[index]),
+              ),
+            ),
+          );
+        },
+      );
+    });
   }
 }
