@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:proyecto_cinema/model/peliculas.dart';
-import 'package:proyecto_cinema/views/detalles_screen.dart';
+// import 'package:proyecto_cinema/model/cartelera_movies_list.dart';
+import 'package:proyecto_cinema/model/movie.dart';
+// import 'package:proyecto_cinema/views/detalles_screen.dart';
+import 'package:proyecto_cinema/widgets/responsive_text.dart';
 
 class PeliculaCard extends StatelessWidget {
   final double height;
-  final Pelicula pelicula;
+  final Movie pelicula;
   final Function() press;
+
   const PeliculaCard({
     super.key,
     required this.pelicula,
@@ -28,8 +31,8 @@ class PeliculaCard extends StatelessWidget {
             child: GestureDetector(
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  pelicula.imagen,
+                child: Image.network(
+                  "https://image.tmdb.org/t/p/w500/${pelicula.posterPath}",
                   fit: BoxFit.cover,
                 ),
               ),
@@ -38,12 +41,10 @@ class PeliculaCard extends StatelessWidget {
           SizedBox(
             width: 160,
             child: Center(
-              child: Text(
-                pelicula.nombre,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontSize: 30,
-                ),
+              child: ResponsiveText(
+                text: pelicula.title,
+                maxFontSize: 24,
+                minFontSize: 16,
               ),
             ),
           ),

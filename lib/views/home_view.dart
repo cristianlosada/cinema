@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:proyecto_cinema/views/confiteria_screen.dart';
 import 'package:proyecto_cinema/views/principal_view.dart';
 import 'package:proyecto_cinema/views/teatros_screen.dart';
-import 'package:proyecto_cinema/widgets/banner_homepage.dart';
-import 'package:proyecto_cinema/widgets/seccion_peliculas.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -15,25 +13,22 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   int _selectedIndex = 0;
 
-  List<Widget> _screens = [
-    PrincipalView(screenHeight: 1, screenWidth: 1),
+  final List<Widget> _screens = const [
+    PrincipalView(),
     ConfiteriaView(),
     TeatrosView(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
-      appBar: AppBarPrincipal(),
+      appBar: appBarPrincipal(),
       body: _screens[_selectedIndex],
-      bottomNavigationBar: BottomNavBarPrincipal(),
+      bottomNavigationBar: bottomNavBarPrincipal(),
     );
   }
 
-  BottomNavigationBar BottomNavBarPrincipal() {
+  BottomNavigationBar bottomNavBarPrincipal() {
     return BottomNavigationBar(
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
@@ -51,11 +46,14 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  AppBar AppBarPrincipal() {
+  AppBar appBarPrincipal() {
     return AppBar(
       backgroundColor: Colors.orangeAccent,
       centerTitle: true,
-      title: const Text('CinemaPark'),
+      title: const Text(
+        'CinemaPark',
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(25),

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:proyecto_cinema/model/peliculas.dart';
+import 'package:proyecto_cinema/model/movie.dart';
+
 import 'package:proyecto_cinema/views/detalles_screen.dart';
 import 'package:proyecto_cinema/widgets/card_pelicula.dart';
 
 class ListaPeliculasView extends StatelessWidget {
-  const ListaPeliculasView({super.key});
+  const ListaPeliculasView({super.key, required this.peliculas});
+  final List<Movie> peliculas;
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +24,7 @@ class ListaPeliculasView extends StatelessWidget {
             press: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) =>
-                    DetallesScreen(pelicula: peliculas[index]),
+                builder: (context) => DetallesScreen(id: peliculas[index].id),
               ),
             ),
           );
